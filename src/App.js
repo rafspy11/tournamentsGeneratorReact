@@ -1,35 +1,68 @@
-import React from 'react';
-import { MDBBtn, MDBContainer } from 'mdb-react-ui-kit';
+import React from "react";
+import { MDBBtn, MDBCol, MDBContainer, MDBRow } from "mdb-react-ui-kit";
+
+import GamesList from './components/games/GamesList';
+import ScoresTable from './components/table/ScoresTable';
+import {teamsData} from './data/teams/TeamsData';
 
 class App extends React.Component {
-  return (
-    <MDBContainer>
-      <div
-        className='d-flex justify-content-center align-items-center'
-        style={{ height: '100vh' }}
-      >
-        <div className='text-center'>
-          <img
-            className='mb-4'
-            src='https://mdbootstrap.com/img/logo/mdb-transparent-250px.png'
-            style={{ width: 250, height: 90 }}
-          />
-          <h5 className='mb-3'>
-            Thank you for using our product. We're glad you're with us.
-          </h5>
-          <p className='mb-3'>MDB Team</p>
-          <MDBBtn
-            tag='a'
-            href='https://mdbootstrap.com/docs/standard/getting-started/'
-            target='_blank'
-            role='button'
-          >
-            Start MDB tutorial
-          </MDBBtn>
-        </div>
-      </div>
-    </MDBContainer>
-  );
+  state = {
+    teams: [
+      {
+        id: 1,
+        name: "Polska",
+        games: 0,
+        points: 0,
+        bs: 0,
+        bl: 0,
+      },
+      {
+        id: 2,
+        name: "Senegal",
+        games: 0,
+        points: 0,
+        bs: 0,
+        bl: 0,
+      },
+      {
+        id: 3,
+        name: "Kolumbia",
+        games: 0,
+        points: 0,
+        bs: 0,
+        bl: 0,
+      },
+      {
+        id: 4,
+        name: "Japonia",
+        games: 0,
+        points: 0,
+        bs: 0,
+        bl: 0,
+      },
+    ]
+  };
+
+  render() {
+    const games = <GamesList teams={this.state.teams} />
+    const table = <ScoresTable teams={this.state.teams} />
+    return (
+      <section className="my-5">
+        <MDBContainer>
+          <MDBRow>
+            <MDBCol>
+              {games}
+            </MDBCol>
+          </MDBRow>
+          <MDBRow>
+            <MDBCol>
+              {table}
+            </MDBCol>
+          </MDBRow>
+        </MDBContainer>
+      </section>
+    );
+  }
 }
 
 export default App;
