@@ -1,9 +1,9 @@
 import React from 'react';
 import { MDBBtn, MDBContainer } from 'mdb-react-ui-kit';
 
-function App() {
+class App extends React.Component {
   return (
-    <MDBContainer fluid>
+    <MDBContainer>
       <div
         className='d-flex justify-content-center align-items-center'
         style={{ height: '100vh' }}
